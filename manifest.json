@@ -1,0 +1,11 @@
+{
+    "name": "Bionic Reading Chrome Extension",
+    "version": "1.0.0",
+    "description": "speed up your reading",
+    "manifest_version": 3,
+    "author": "Marius Albeser",
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "Bionic-Reading"
+    }
+}
