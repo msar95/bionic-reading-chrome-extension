@@ -2,7 +2,7 @@ const input = document.getElementById("input");
 
 
 function displayOutputText() {
-    const updatedOutput = mergeFirstCharsWithRest();
+    const updatedOutput = mergeFirstHalfWithSecondHalf();
     const txt = document.createElement("p");
     txt.innerHTML = updatedOutput.join(" ");
     document.getElementById("output").appendChild(txt);
@@ -39,7 +39,7 @@ function transFirstCharsBold(){
     return updatedArr;
 }
 
-function mergeFirstCharsWithRest(){
+function mergeFirstHalfWithSecondHalf(){
     const firstHalfArr = transFirstCharsBold();
     const restArr = getRemainingChars();
     const updatedArr = [];
