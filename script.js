@@ -8,14 +8,33 @@ function displayOutputText() {
     document.getElementById("output").appendChild(txt);
 }
 
-function getFirstTwoChars() {
+function getFirstChars() {
     const textArr = input.value.split(/(\s+)/);
     const updatedArr = [];
     textArr.forEach(el => {
         if(el !== " ")
-        updatedArr.push(el.slice(0,2));
+        updatedArr.push(getWordLength(el));
     });
+    console.log(updatedArr)
     return updatedArr;
+    
+}
+
+function getWordLength(el){
+    const obj = {
+        1 : el.slice(0,1),
+        2 : el.slice(0,2),
+        3 : el.slice(0,2),
+        4 : el.slice(0,2),
+        5 : el.slice(0,3),
+        6 : el.slice(0,3),
+        7 : el.slice(0,4),
+        8 : el.slice(0,4),
+        9 : el.slice(0,5),
+        10 : el.slice(0,5)
+    }
+    console.log(typeof(el));
+    return obj[el.length] ?? el.slice(0,6);
 }
 
 function getRemainingChars() {
@@ -29,7 +48,7 @@ function getRemainingChars() {
 }
 
 function transFirstTwoCharsBold(){
-    const arr = getFirstTwoChars();
+    const arr = getFirstChars();
     const updatedArr = [];
     arr.forEach(el => { 
         updatedArr.push(`<b>${el}</b>`);
