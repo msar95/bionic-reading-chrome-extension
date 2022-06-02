@@ -20,6 +20,35 @@ function getFirstChars() {
     
 }
 
+function getRemainingChars() {
+    const textArr = input.value.split(/(\s+)/);
+    const updatedArr = [];
+    textArr.forEach(el => {
+        if(el !== " ")
+        updatedArr.push(getWordsSecondHalf(el));
+    });
+    return updatedArr;
+}
+
+function transFirstCharsBold(){
+    const arr = getFirstChars();
+    const updatedArr = [];
+    arr.forEach(el => { 
+        updatedArr.push(`<b>${el}</b>`);
+    });
+    return updatedArr;
+}
+
+function mergeFirstCharsWithRest(){
+    const firstHalfArr = transFirstCharsBold();
+    const restArr = getRemainingChars();
+    const updatedArr = [];
+    for (let index = 0; index < restArr.length; index++) {
+        updatedArr.push(firstHalfArr[index] + restArr[index]);
+    }
+    return updatedArr;
+}
+
 function getWordsFirstHalf(el){
     const obj = {
         1 : el.slice(0,1),
@@ -51,34 +80,3 @@ function getWordsSecondHalf(el){
     }
     return obj[el.length] ?? el.slice(6);
 }
-
-
-function getRemainingChars() {
-    const textArr = input.value.split(/(\s+)/);
-    const updatedArr = [];
-    textArr.forEach(el => {
-        if(el !== " ")
-        updatedArr.push(getWordsSecondHalf(el));
-    });
-    return updatedArr;
-}
-
-function transFirstCharsBold(){
-    const arr = getFirstChars();
-    const updatedArr = [];
-    arr.forEach(el => { 
-        updatedArr.push(`<b>${el}</b>`);
-    });
-    return updatedArr;
-}
-
-function mergeFirstCharsWithRest(){
-    const firstHalfArr = transFirstCharsBold();
-    const restArr = getRemainingChars();
-    const updatedArr = [];
-    for (let index = 0; index < restArr.length; index++) {
-        updatedArr.push(firstHalfArr[index] + restArr[index]);
-    }
-    return updatedArr;
-}
-
